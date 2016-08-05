@@ -1,0 +1,6 @@
+Django
+django-crispy-forms
+django-environ
+django-pipeline
+psycopg2
+pytest-django
