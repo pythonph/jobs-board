@@ -1,0 +1,54 @@
+{% load pipeline %}
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Jobs Board by PythonPH</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  {% stylesheet 'bundle' %}
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+	<div class="card card-block">
+	  <h1 class="h3 card-title">
+	    Jobs Board
+	    <small class="text-muted">by PythonPH</small>
+	  </h1>
+	  <p class="card-text">
+	    Post or find your next Python gig.
+	  </p>
+	  <div class="row flex-items-xs-middle">
+	    <div class="col-sm">
+	      <a href="#" class="btn btn-primary">Post a Job</a>
+	    </div>
+	    <div class="col-sm text-xs-center">or</div>
+	    <div class="col-sm-8">
+	      <div class="input-group">
+		<input type="text" class="form-control">
+		<span class="input-group-btn">
+		  <a href="#" class="btn btn-primary">Find a Job</a>
+		</span>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <div class="col-xs">
+	<div class="card card-block card-inverse card-info">
+	  <h2 class="h4 card-title">
+	    Want to be updated on latest job postings?
+	  </h2>
+	  <p class="card-text">
+	    Enter your email to receive a weekly digest:
+	  </p>
+	  <form class="form-inline">
+	    <input type="email" class="form-control form-control-sm" placeholder="Email">
+	    <button class="btn btn-secondary btn-sm">Subscribe</button>
+	  </form>
+	</div>
+      </div>
+    </div>
+  </div>
+  {% javascript 'bundle' %}

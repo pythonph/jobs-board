@@ -2,5 +2,6 @@ Django
 django-crispy-forms
 django-environ
 django-pipeline
+libsass
 psycopg2
 pytest-django

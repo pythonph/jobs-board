@@ -5,6 +5,16 @@
 ## Requirements
 
 - Python 3.x
+- Node 4.x
+
+## Development
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+npm install
+```
 
 ## License
 

@@ -1,19 +1,14 @@
 import environ
 
+# django-environ
 root = environ.Path(__file__) - 2
 env = environ.Env(
     DEBUG=(bool, False),
 )
-env.read_env(str(root.path('.env')))
+env.read_env(str(root('.env')))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
@@ -30,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'pipeline',
+    'jobsboard.web',
 ]
 
 MIDDLEWARE = [
@@ -109,9 +105,47 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = str(root('static'))
+
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'pipeline.finders.PipelineFinder',
 )
+
+STATICFILES_DIRS = [root('node_modules')]
+
+
+# Pipeline
+# https://django-pipeline.readthedocs.io/en/latest/configuration.html
+
+PIPELINE = {
+    'STYLESHEETS': {
+        'bundle': {
+            'source_filenames': (
+                'bootstrap/scss/bootstrap-flex.scss',
+                'scss/app.scss',
+            ),
+            'output_filename': 'css/bundle.css',
+        },
+    },
+    'JAVASCRIPT': {
+        'bundle': {
+            'source_filenames': (
+                'bootstrap/dist/js/bootstrap.js',
+                'js/app.js',
+            ),
+            'output_filename': 'js/bundle.js',
+        },
+    },
+}
+
+
+PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
+PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
+PIPELINE['COMPILERS'] = (
+    'jobsboard.web.compilers.SASSCompiler',
+)
+

@@ -1,4 +1,7 @@
-.env
-venv/
 *.pyc
+.env
+/media/
+/node_modules/
+/static/
+/venv/
 __pycache__/
