@@ -115,7 +115,9 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
-STATICFILES_DIRS = [root('node_modules')]
+STATICFILES_DIRS = [
+    ('bootstrap', root('node_modules/bootstrap')),
+]
 
 
 # Pipeline
@@ -141,7 +143,6 @@ PIPELINE = {
         },
     },
 }
-
 
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
 PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
