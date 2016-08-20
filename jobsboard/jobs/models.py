@@ -28,5 +28,10 @@ class Job(TimeStampedModel):
     is_featured = models.BooleanField(default=False)
     employment_type = models.IntegerField(choices=EMPLOYMENT_TYPE, default=1)
     location = models.CharField(max_length=256, blank=True)
-    email = models.CharField(max_length=100, blank=True)
+    email = models.EmailField(unique=True, blank=False)
     expiry = models.DateTimeField(default=timezone.now() + timezone.timedelta(days=30))
+
+    def save(self, *args, **kwargs):
+        # On save, update timestamps
+        self.expiry = default=timezone.now() + timezone.timedelta(days=30)
+        return super(Job, self).save(*args, **kwargs)
