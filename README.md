@@ -57,6 +57,12 @@
 
 ### Running the tests
 
+  We use `py.test` as our test runner. It is currently configured to run
+  the files inside directories named `tests` inside the sub-apps.
+
+  Example: the tests for the `jobsboard.jobs` sub-app are inside
+  `jobsboard/jobs/tests/`
+
   Basic usage:
   ```
   py.test
