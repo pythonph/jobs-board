@@ -2,6 +2,7 @@ from model_utils.models import TimeStampedModel
 from django.utils.translation import ugettext_lazy as _
 
 from django.db import models
+from django.utils import timezone
 
 
 class Job(TimeStampedModel):
@@ -26,3 +27,6 @@ class Job(TimeStampedModel):
     url = models.URLField()
     is_featured = models.BooleanField(default=False)
     employment_type = models.IntegerField(choices=EMPLOYMENT_TYPE, default=1)
+    #location = models.ForeignKey(Location)
+    email = models.CharField(max_length=100, blank=True)
+    expiry = models.DateTimeField(default=timezone.now() + timezone.timedelta(days=30))
