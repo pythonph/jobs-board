@@ -23,6 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    # 3rd-party apps
     'crispy_forms',
     'pipeline',
 
@@ -102,6 +105,24 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Sites
+# https://docs.djangoproject.com/en/1.10/ref/settings/#std:setting-SITE_ID
+SITE_ID = 1
+
+
+# Email
+# See: https://docs.djangoproject.com/en/1.10/topics/email/
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_SUBJECT_PREFIX = '[Python.PH Jobs] '
+EMAIL_USE_TLS = True
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # Static files (CSS, JavaScript, Images)

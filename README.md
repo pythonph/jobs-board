@@ -35,6 +35,9 @@
   DEBUG=True
   SECRET_KEY=secret
   DATABASE_URL=postgres://pythonph:password@localhost/jobsboard
+  EMAIL_HOST_USER=<YOUR GMAIL EMAIL>
+  EMAIL_HOST_PASSWORD=<YOUR GMAIL PASSWORD>
+
   ```
 
 4. Run migrations
@@ -55,15 +58,28 @@
   ./manage.py runserver
   ```
 
-### Docker Dev Setup
+### Docker Dev Setup (Alternative)
+
+If you prefer to use docker for development, follow these steps instead.
 
 Requirements
 
 - Docker Engine
 - Docker Compose
 
+1. Create configuration file
 
-1. Run migrations and create admin user
+  ```sh
+  cat .env
+  DEBUG=True
+  SECRET_KEY=secret
+  DATABASE_URL=postgres://pythonph:password@postgres:5432/jobsboard
+  EMAIL_HOST_USER=<YOUR GMAIL EMAIL>
+  EMAIL_HOST_PASSWORD=<YOUR GMAIL PASSWORD>
+
+  ```
+
+2. Run migrations and create admin user
 
     ```sh
     docker-compose run --rm -u "$(id -u):$(id -g)" web /bin/bash
@@ -71,7 +87,8 @@ Requirements
     python3 manage.py createsuperuser
     exit
     ```
-2. Run development server
+
+3. Run development server
 
     ```sh
     docker-compose run --rm --service-ports web

@@ -1,13 +1,5 @@
-{% load pipeline %}
-<!doctype html>
-<html lang="en">
-<head>
-  <title>Jobs Board by PythonPH</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  {% stylesheet 'bundle' %}
-<body>
+{% extends 'base.html' %}
+{% block content %}
   <div class="container">
     <div class="row">
       <div class="col-md-8">
@@ -44,4 +36,4 @@
       </div>
     </div>
   </div>
-  {% javascript 'bundle' %}
+{% endblock content %}
