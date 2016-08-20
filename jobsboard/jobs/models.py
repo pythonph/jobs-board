@@ -4,6 +4,9 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.utils import timezone
 
+def get_default_expiry():
+    return timezone.now() + timezone.timedelta(days=30)
+
 
 class Job(TimeStampedModel):
 
@@ -29,9 +32,4 @@ class Job(TimeStampedModel):
     employment_type = models.IntegerField(choices=EMPLOYMENT_TYPE, default=1)
     location = models.CharField(max_length=256, blank=True)
     email = models.EmailField(unique=True, blank=False)
-    expiry = models.DateTimeField(default=timezone.now() + timezone.timedelta(days=30))
-
-    def save(self, *args, **kwargs):
-        # On save, update timestamps
-        self.expiry = default=timezone.now() + timezone.timedelta(days=30)
-        return super(Job, self).save(*args, **kwargs)
+    expiry = models.DateTimeField(default=get_default_expiry)
