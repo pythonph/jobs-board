@@ -93,6 +93,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Authentication
+# https://docs.djangoproject.com/en/1.10/ref/settings/#std:setting-AUTHENTICATION_BACKENDS
+AUTHENTICATION_BACKENDS = [
+    'jobsboard.accounts.auth.backends.UsernameBackend',
+    'jobsboard.accounts.auth.backends.EmailBackend',
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
