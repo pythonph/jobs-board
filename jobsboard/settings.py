@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     # 3rd-party apps
     'crispy_forms',
+    'django_extensions',
     'pipeline',
 
     # own apps
