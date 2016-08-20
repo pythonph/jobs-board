@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'pipeline',
 
     # own apps
+    'jobsboard.accounts',
     'jobsboard.web',
     'jobsboard.jobs',
 ]
