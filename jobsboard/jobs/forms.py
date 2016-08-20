@@ -11,4 +11,4 @@ class JobForm(forms.ModelForm):
 
     class Meta:
         model = Job
-        exclude = ['created', 'updated',]
+        exclude = ['created', 'updated', 'expiry']
