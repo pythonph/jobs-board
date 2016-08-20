@@ -1,5 +1,6 @@
-*.pyc
+*.py[cod]
 .env
+pgdata/
 /media/
 /node_modules/
 /static/

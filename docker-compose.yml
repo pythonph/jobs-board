@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+    postgres:
+        restart: always
+        image: postgres:9.5
+        volumes:
+            - ./pgdata:/var/lib/postgresql/data/
+            - ./scripts/db:/docker-entrypoint-initdb.d
+        ports:
+            - "54321:5432"
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+            PGDB_NAME: jobsboard
+            PGDB_USER: pythonph
+            PGDB_PASS: password
+        container_name: pyjobs-pg
+
+    web:
+        restart: always
+        build:
+            context: .
+        image: pythonphjobs-dev
+        volumes:
+            - .:/srv/app
+        container_name: pyjobs-web
+        working_dir: "/srv/app"
+        ports:
+            - "8001:8000"
+        depends_on:
+            - postgres
+        command: scripts/dev_startup.sh

@@ -55,6 +55,28 @@
   ./manage.py runserver
   ```
 
+### Docker Dev Setup
+
+Requirements
+
+- Docker Engine
+- Docker Compose
+
+
+1. Run migrations and create admin user
+
+    ```sh
+    docker-compose run --rm -u "$(id -u):$(id -g)" web /bin/bash
+    python3 manage.py migrate
+    python3 manage.py createsuperuser
+    exit
+    ```
+2. Run development server
+
+    ```sh
+    docker-compose run --rm --service-ports web
+    ```
+
 ### Running the tests
 
   We use `py.test` as our test runner. It is currently configured to run
