@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">Python.PH Jobs</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        {% if not request.user.is_authenticated %}
+        <li>
+            <a href="{% url 'accounts:signup' %}">Sign up</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:login' %}?next={% url 'index' %}">Login</a>
+        </li>
+        {% else %}
+        <li class="dropdown">
+            <a class="dropdown-toggle" aria-expanded="false" href="#"
+                data-target="#" data-toggle="dropdown"
+                role="button" aria-haspopu="true"
+            >Hello, {{ request.user.get_short_name|default:request.user.username }}
+            <b class="caret"></b>
+            </a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'accounts:profile_update' %}">Update profile</a></li>
+            <li><a href="{% url 'accounts:password_change' %}">Change password</a></li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a href="{% url 'accounts:logout' %}">Logout</a>
+            </li>
+          </ul>
+        </li>
+        {% endif %}
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

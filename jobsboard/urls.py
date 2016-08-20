@@ -5,4 +5,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('jobsboard.web.urls')),
     url(r'^jobs/', include('jobsboard.jobs.urls')),
+    url(r'^accounts/', include('jobsboard.accounts.urls', namespace='accounts')),
 ]
