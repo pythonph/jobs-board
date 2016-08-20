@@ -23,6 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    # 3rd-party apps
     'crispy_forms',
     'pipeline',
 
@@ -102,6 +105,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Sites
+# https://docs.djangoproject.com/en/1.10/ref/settings/#std:setting-SITE_ID
+SITE_ID = 1
 
 
 # Static files (CSS, JavaScript, Images)
