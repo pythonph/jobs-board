@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'pipeline',
+    'jobsboard.accounts',
     'jobsboard.web',
 ]
 
