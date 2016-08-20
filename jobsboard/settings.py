@@ -25,7 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'pipeline',
+
+    # own apps
     'jobsboard.web',
+    'jobsboard.jobs',
 ]
 
 MIDDLEWARE = [
