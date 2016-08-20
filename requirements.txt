@@ -1,6 +1,7 @@
 Django
 django-crispy-forms
 django-environ
+django-extensions==1.7.2
 django-pipeline
 libsass
 psycopg2
