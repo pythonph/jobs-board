@@ -27,6 +27,6 @@ class Job(TimeStampedModel):
     url = models.URLField()
     is_featured = models.BooleanField(default=False)
     employment_type = models.IntegerField(choices=EMPLOYMENT_TYPE, default=1)
-    #location = models.ForeignKey(Location)
+    location = models.CharField(max_length=256, blank=True)
     email = models.CharField(max_length=100, blank=True)
     expiry = models.DateTimeField(default=timezone.now() + timezone.timedelta(days=30))
