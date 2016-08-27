@@ -30,4 +30,4 @@ class Job(TimeStampedModel):
     employment_type = models.IntegerField(choices=EMPLOYMENT_TYPE, default=1)
     location = models.CharField(max_length=256, blank=True)
     email = models.EmailField(unique=True, blank=False)
-    expiry = models.DateTimeField(default=get_default_expiry)
+    expiry_date = models.DateField(default=get_default_expiry)
