@@ -1,12 +1,9 @@
 from model_utils.models import TimeStampedModel
+
 from django.utils.translation import ugettext_lazy as _
-
 from django.db import models
-from django.utils import timezone
 
-
-def get_default_expiry():
-    return timezone.now() + timezone.timedelta(days=30)
+from jobsboard.common.utils import get_default_expiry
 
 
 class Job(TimeStampedModel):
