@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
@@ -22,7 +23,7 @@ class JobDetailView(DetailView):
     template_name = 'job_detail.html'
 
 
-class JobCreateView(CreateView):
+class JobCreateView(LoginRequiredMixin, CreateView):
     model = Job
     template_name = 'job_create.html'
     form_class = JobForm
