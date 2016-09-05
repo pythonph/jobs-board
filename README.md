@@ -58,16 +58,16 @@
   ./manage.py runserver
   ```
 
-### Docker Dev (Alternative)
+## Docker Development (Alternative)
 
 If you prefer to use docker for development, follow these steps instead.
 
-#### Requirements
+### Requirements
 
 - Docker Engine
 - Docker Compose
 
-#### Setup
+### Setup
 
 1. Create configuration file
 
@@ -95,7 +95,7 @@ If you prefer to use docker for development, follow these steps instead.
     docker-compose run --rm --service-ports web
     ```
 
-### Running the tests
+## Running the tests
 
   We use `py.test` as our test runner. It is currently configured to run
   the files inside directories named `tests` inside the sub-apps.
@@ -103,7 +103,7 @@ If you prefer to use docker for development, follow these steps instead.
   _Example_: the tests for the `jobsboard.jobs` sub-app are inside
   `jobsboard/jobs/tests/`
 
-#### Basic usage:
+### Basic usage:
 
   ```
   py.test
@@ -132,7 +132,7 @@ If you prefer to use docker for development, follow these steps instead.
   py.test --create-db --reuse-db
   ```
 
-### Styleguides
+## Styleguides
 
 - [Design](https://github.com/pythonph/styleguide)
 - [PEP8](https://www.python.org/dev/peps/pep-0008/) for Python
