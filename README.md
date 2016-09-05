@@ -62,7 +62,7 @@
 
 If you prefer to use docker for development, follow these steps instead.
 
-Requirements
+#### Requirements
 
 - Docker Engine
 - Docker Compose
@@ -76,7 +76,6 @@ Requirements
   DATABASE_URL=postgres://pythonph:password@postgres:5432/jobsboard
   EMAIL_HOST_USER=<YOUR GMAIL EMAIL>
   EMAIL_HOST_PASSWORD=<YOUR GMAIL PASSWORD>
-
   ```
 
 2. Run migrations and create admin user
@@ -99,10 +98,11 @@ Requirements
   We use `py.test` as our test runner. It is currently configured to run
   the files inside directories named `tests` inside the sub-apps.
 
-  Example: the tests for the `jobsboard.jobs` sub-app are inside
+  _Example_: the tests for the `jobsboard.jobs` sub-app are inside
   `jobsboard/jobs/tests/`
 
-  Basic usage:
+#### Basic usage:
+
   ```
   py.test
   ```
