@@ -1,12 +1,9 @@
 from model_utils.models import TimeStampedModel
+
 from django.utils.translation import ugettext_lazy as _
-
 from django.db import models
-from django.utils import timezone
 
-
-def get_default_expiry():
-    return timezone.now() + timezone.timedelta(days=30)
+from jobsboard.common.utils import get_default_expiry
 
 
 class Job(TimeStampedModel):
@@ -30,7 +27,7 @@ class Job(TimeStampedModel):
     description = models.TextField()
     url = models.URLField()
     is_featured = models.BooleanField(default=False)
-    employment_type = models.IntegerField(choices=EMPLOYMENT_TYPE, default=1)
+    employment_type = models.IntegerField(choices=EMPLOYMENT_TYPE, default=EMPLOYMENT_TYPE_FULL_TIME)
     location = models.CharField(max_length=256, blank=True)
     email = models.EmailField(unique=True, blank=False)
-    expiry = models.DateTimeField(default=get_default_expiry)
+    expiry_date = models.DateField(default=get_default_expiry)
