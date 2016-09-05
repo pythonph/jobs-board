@@ -58,7 +58,7 @@
   ./manage.py runserver
   ```
 
-### Docker Dev Setup (Alternative)
+### Docker Dev (Alternative)
 
 If you prefer to use docker for development, follow these steps instead.
 
@@ -66,6 +66,8 @@ If you prefer to use docker for development, follow these steps instead.
 
 - Docker Engine
 - Docker Compose
+
+#### Setup
 
 1. Create configuration file
 
